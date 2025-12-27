@@ -1,0 +1,97 @@
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Menu, X, Phone } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navItems = [
+    { label: 'Služby', href: '#sluzby' },
+    { label: 'Cenník', href: '#cennik' },
+    { label: 'O nás', href: '#o-nas' },
+    { label: 'Kontakt', href: '#kontakt' },
+  ];
+
+  return (
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-background/95 backdrop-blur-md shadow-sm border-b border-slate-100' 
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          <a href="#" className="flex items-center gap-2">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-800 to-blue-600 flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-lg">IT</span>
+            </div>
+            <span className="text-xl font-semibold text-slate-900 tracking-tight">
+              Iršava <span className="text-blue-700">tech</span>
+            </span>
+          </a>
+
+          <nav className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors relative group"
+              >
+                {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-700 transition-all duration-300 group-hover:w-full" />
+              </a>
+            ))}
+          </nav>
+
+          <a href="tel:+421952240671" className="hidden md:block">
+            <Button className="bg-orange-600 hover:bg-orange-700 text-primary-foreground font-medium px-5 py-2.5 rounded-full shadow-lg shadow-orange-600/20 transition-all hover:shadow-xl hover:shadow-orange-600/30 hover:-translate-y-0.5">
+              <Phone className="w-4 h-4 mr-2" />
+              Zavolať teraz
+            </Button>
+          </a>
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      <motion.div
+        initial={false}
+        animate={{ height: mobileMenuOpen ? 'auto' : 0, opacity: mobileMenuOpen ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        className="md:hidden overflow-hidden bg-background border-t border-slate-100"
+      >
+        <nav className="px-4 py-4 space-y-2">
+          {navItems.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </motion.div>
+    </motion.header>
+  );
+}

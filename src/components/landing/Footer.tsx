@@ -38,10 +38,10 @@ export default function Footer() {
                 <Mail className="w-5 h-5" />
                 <span>servis@irsava-tech.sk</span>
               </a>
-              <div className="flex items-center gap-3 text-slate-400">
+              <a href="https://maps.app.goo.gl/2KfzyhRo3TKoRQSt8" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-slate-400 hover:text-primary-foreground transition-colors">
                 <MapPin className="w-5 h-5" />
                 <span>Račianske mýto 1D, Bratislava</span>
-              </div>
+              </a>
             </div>
           </div>
         </div>

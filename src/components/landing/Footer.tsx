@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram } from 'lucide-react';
 import logo from '@/assets/logo.png';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -41,6 +41,10 @@ export default function Footer() {
               <a href="https://maps.app.goo.gl/2KfzyhRo3TKoRQSt8" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-slate-400 hover:text-primary-foreground transition-colors">
                 <MapPin className="w-5 h-5" />
                 <span>Račianske mýto 1D, Bratislava</span>
+              </a>
+              <a href="https://www.instagram.com/irsava.tech?igsh=MXQxNW1zaTV0cmx4Yw==" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-slate-400 hover:text-primary-foreground transition-colors">
+                <Instagram className="w-5 h-5" />
+                <span>@irsava.tech</span>
               </a>
             </div>
           </div>

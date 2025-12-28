@@ -163,15 +163,32 @@ function QuoteForm() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setSubmitted(true);
-    setIsSubmitting(false);
-    
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', description: '' });
-    }, 3000);
+    try {
+      const response = await fetch('https://formspree.io/f/xykypkpn', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.description,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({ name: '', email: '', phone: '', description: '' });
+        }, 5000);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {

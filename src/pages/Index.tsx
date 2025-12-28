@@ -1,6 +1,7 @@
 import Header from '@/components/landing/Header';
 import HeroSection from '@/components/landing/HeroSection';
 import ServicesSection from '@/components/landing/ServicesSection';
+import ModularRepairSection from '@/components/landing/ModularRepairSection';
 import PricingSection from '@/components/landing/PricingSection';
 import ContactSection from '@/components/landing/ContactSection';
 import ReviewsSection from '@/components/landing/ReviewsSection';
@@ -14,6 +15,7 @@ export default function Index() {
       <main>
         <HeroSection />
         <ServicesSection />
+        <ModularRepairSection />
         <PricingSection />
         <ContactSection />
         <ReviewsSection />

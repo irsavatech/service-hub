@@ -39,8 +39,8 @@ export default function Footer() {
               </span>
             </div>
             <div className="text-slate-400 leading-relaxed space-y-1">
-              <p>Stanislav Zavydniak 
-Karpatské námestie 7770/10A,</p>
+              <p>Stanislav Zavydniak</p>
+              <p>Karpatské námestie 7770/10A,</p>
               <p>831 06 Bratislava</p>
               <p>IČO: 53788656 DIČ: 3120946994</p>
               <p>Nie je platiteľ DPH.</p>

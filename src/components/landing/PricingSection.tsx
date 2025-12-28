@@ -179,10 +179,7 @@ function QuoteForm() {
 
       if (response.ok) {
         setSubmitted(true);
-        setTimeout(() => {
-          setSubmitted(false);
-          setFormData({ name: '', email: '', phone: '', description: '' });
-        }, 5000);
+        setFormData({ name: '', email: '', phone: '', description: '' });
       }
     } catch (error) {
       console.error('Form submission error:', error);

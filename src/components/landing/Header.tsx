@@ -37,10 +37,10 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#" className="flex items-center gap-2">
-            <img src={logo} alt="Iršava tech logo" className="h-10 w-auto" />
-            <div className="font-oswald leading-tight">
-              <div className="text-slate-900 text-lg tracking-wide">IRŠAVA</div>
-              <div className="text-blue-700 text-lg tracking-wide">TECH</div>
+            <img src={logo} alt="Iršava tech logo" className="h-9 w-auto" />
+            <div className="font-oswald leading-none">
+              <div className="text-slate-900 text-base tracking-wide">IRŠAVA</div>
+              <div className="text-blue-700 text-base tracking-wide">TECH</div>
             </div>
           </a>
 

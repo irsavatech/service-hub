@@ -125,31 +125,35 @@ export default function PricingSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-10 p-6 rounded-2xl bg-slate-50 border border-slate-100"
+            className="mt-10 rounded-3xl bg-background border border-slate-200 shadow-lg overflow-hidden"
           >
-            <div className="flex items-start gap-4">
-              <div className="shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                <Check className="w-5 h-5 text-blue-700" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-slate-900 mb-1">
-                  Individuálne ocenenie zložitých opráv
-                </h4>
-                <p className="text-slate-600 text-sm">
-                  Opravy základných dosiek, výmena čipov a iné komplexné práce oceňujeme po bezplatnej diagnostike. Kontaktujte nás pre presný odhad.
-                </p>
+            {/* Individual quote header - connected to form */}
+            <div className="p-6 bg-gradient-to-r from-blue-50 to-slate-50 border-b border-slate-100">
+              <div className="flex items-start gap-4">
+                <div className="shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+                  <Check className="w-6 h-6 text-blue-700" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-bold text-slate-900 text-lg mb-1">
+                    Individuálne ocenenie zložitých opráv
+                  </h4>
+                  <p className="text-slate-600 text-sm leading-relaxed">
+                    Opravy základných dosiek, výmena čipov a iné komplexné práce oceňujeme po bezplatnej diagnostike. 
+                    <span className="font-medium text-blue-700"> Vyplňte formulár nižšie a my vám pošleme presný odhad ceny.</span>
+                  </p>
+                </div>
               </div>
             </div>
-          </motion.div>
 
-          <QuoteForm />
+            {/* Quote form - part of the same card */}
+          </motion.div>
         </div>
       </div>
     </section>
   );
 }
 
-function QuoteForm() {
+function QuoteFormInline() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -190,11 +194,7 @@ function QuoteForm() {
 
   if (submitted) {
     return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="mt-10 p-8 rounded-3xl bg-gradient-to-br from-green-50 to-green-100/50 border border-green-200 text-center"
-      >
+      <div className="p-8 text-center">
         <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
           <Check className="w-8 h-8 text-green-700" />
         </div>
@@ -204,19 +204,13 @@ function QuoteForm() {
         <p className="text-slate-600">
           Ozveme sa vám čo najskôr s cenovou ponukou.
         </p>
-      </motion.div>
+      </div>
     );
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: 0.6 }}
-      className="mt-10 p-8 rounded-3xl bg-background border border-slate-200 shadow-lg"
-    >
-      <div className="text-center mb-8">
+    <div className="p-8">
+      <div className="text-center mb-6">
         <h3 className="text-2xl font-bold text-slate-900 mb-2">
           Získajte cenovú ponuku
         </h3>
@@ -286,6 +280,7 @@ function QuoteForm() {
           )}
         </Button>
       </form>
-    </motion.div>
+    </div>
   );
 }
+

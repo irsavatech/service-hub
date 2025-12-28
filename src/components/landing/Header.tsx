@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import logo from '@/assets/logo.png';
 
@@ -18,7 +19,7 @@ export default function Header() {
 
   const navItems = [
     { label: 'Služby', href: '#sluzby' },
-    { label: 'Cenník', href: '#cennik' },
+    { label: 'Cenník', href: '/price', isRoute: true },
     { label: 'O nás', href: '#o-nas' },
     { label: 'Kontakt', href: '#kontakt' },
   ];
@@ -36,25 +37,36 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="#" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <img src={logo} alt="Iršava tech logo" className="h-9 w-auto" />
             <span className="font-oswald text-lg tracking-wide">
               <span className="text-slate-900">IRŠAVA</span>{' '}
               <span className="text-blue-700">TECH</span>
             </span>
-          </a>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors relative group"
-              >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-700 transition-all duration-300 group-hover:w-full" />
-              </a>
-            ))}
+            {navItems.map((item) => 
+              item.isRoute ? (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors relative group"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-700 transition-all duration-300 group-hover:w-full" />
+                </Link>
+              ) : (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors relative group"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-700 transition-all duration-300 group-hover:w-full" />
+                </a>
+              )
+            )}
           </nav>
 
           <a href="tel:+421952240671" className="hidden md:block">
@@ -80,16 +92,27 @@ export default function Header() {
         className="md:hidden overflow-hidden bg-background border-t border-slate-100"
       >
         <nav className="px-4 py-4 space-y-2">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors"
-            >
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => 
+            item.isRoute ? (
+              <Link
+                key={item.label}
+                to={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors"
+              >
+                {item.label}
+              </a>
+            )
+          )}
         </nav>
       </motion.div>
     </motion.header>

@@ -1,9 +1,10 @@
 import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Sparkles, Monitor, Smartphone, Shield, HardDrive, Send } from 'lucide-react';
+import { Check, Sparkles, Monitor, Smartphone, Shield, HardDrive, Send, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Link } from 'react-router-dom';
 import CircuitPattern from './CircuitPattern';
 
 const pricingItems = [
@@ -119,6 +120,22 @@ export default function PricingSection() {
               </motion.div>
             ))}
           </div>
+
+          {/* Button to full pricing */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-8 text-center"
+          >
+            <Link to="/price">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg">
+                Zobraziť kompletný cenník
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

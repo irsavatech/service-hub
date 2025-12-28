@@ -1,9 +1,17 @@
 import Header from '@/components/landing/Header';
 import Footer from '@/components/landing/Footer';
+import Seo from '@/components/Seo';
 
 export default function PodmienkyPage() {
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Podmienky ochrany osobných údajov | Iršava tech"
+        description="Podmienky ochrany osobných údajov a spracúvanie cookies na stránke Iršava tech. GDPR, ochrana súkromia."
+        keywords="GDPR, ochrana osobných údajov, cookies, súkromie"
+        lang="sk"
+        url="/podmienky"
+      />
       <Header />
       
       <main className="pt-24 pb-16">

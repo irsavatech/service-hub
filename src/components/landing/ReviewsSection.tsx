@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Phone } from 'lucide-react';
 import CircuitPattern from './CircuitPattern';
 
 export default function ReviewsSection() {
@@ -54,6 +55,23 @@ export default function ReviewsSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="elfsight-app-c7996d82-f554-4f24-9547-23683bd81c3b" data-elfsight-app-lazy></div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center mt-16"
+        >
+          <p className="text-lg text-slate-600 mb-6">Máte ešte otázky?</p>
+          <a
+            href="tel:+421911555888"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:from-orange-700 hover:to-orange-600 transition-all duration-300"
+          >
+            <Phone className="w-5 h-5" />
+            Zavolajte nám
+          </a>
         </motion.div>
       </div>
     </section>

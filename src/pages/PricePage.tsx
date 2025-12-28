@@ -4,6 +4,7 @@ import { ChevronDown, Smartphone, Laptop, Shield, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import Footer from '@/components/landing/Footer';
+import CircuitPattern from '@/components/landing/CircuitPattern';
 import logo from '@/assets/logo.png';
 
 interface PriceItem {
@@ -476,8 +477,12 @@ export default function PricePage() {
       </section>
 
       {/* iPhone Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-background overflow-hidden">
+        <CircuitPattern opacity={0.3} />
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-30" />
+        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-30" />
+        
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-10">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
               <Smartphone className="w-6 h-6 text-white" />

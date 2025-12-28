@@ -129,7 +129,7 @@ export default function PricingSectionRu() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-8 text-center"
           >
-            <Link to="/ru/price" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <Link to="/cena" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <Button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-6 text-lg rounded-xl shadow-lg">
                 Показать полный прайс
                 <ArrowRight className="w-6 h-6 ml-2" />

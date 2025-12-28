@@ -37,7 +37,11 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link to="/" className="flex items-center gap-2">
+          <Link 
+            to="/" 
+            className="flex items-center gap-2"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
             <img src={logo} alt="Iršava tech logo" className="h-9 w-auto" />
             <span className="font-oswald text-lg tracking-wide">
               <span className="text-slate-900">IRŠAVA</span>{' '}

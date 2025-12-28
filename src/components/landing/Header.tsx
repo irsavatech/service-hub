@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import logo from '@/assets/logo.png';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,12 +37,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-800 to-blue-600 flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">IT</span>
-            </div>
-            <span className="text-xl font-semibold text-slate-900 tracking-tight">
-              Iršava <span className="text-blue-700">tech</span>
-            </span>
+            <img src={logo} alt="Iršava tech logo" className="h-10 w-auto" />
           </a>
 
           <nav className="hidden md:flex items-center gap-8">

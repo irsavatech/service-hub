@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ChevronDown, Smartphone, Laptop, Shield, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import Footer from '@/components/landing/Footer';
+import FooterRu from '@/components/landing/ru/FooterRu';
 import CircuitPattern from '@/components/landing/CircuitPattern';
 import logo from '@/assets/logo.png';
 
@@ -30,322 +30,322 @@ interface LaptopService {
 const iphoneModels: PhoneModel[] = [
   {
     name: "iPhone 16 Pro Max",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "550 €", priceKopi: "220 €" },
-      { service: "Výmena batérie", priceOri: "140 €", priceKopi: "120 €" },
-      { service: "Výmena zadného skla", price: "129 €" },
-      { service: "Výmena zadného skla a rámu", price: "270 €" },
-      { service: "Výmena mikrofónu", price: "76 €" },
-      { service: "Výmena sluchátka", price: "85 €" },
-      { service: "Výmena kamery", price: "180 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "550 €", priceKopi: "220 €" },
+      { service: "Замена батареи", priceOri: "140 €", priceKopi: "120 €" },
+      { service: "Замена заднего стекла", price: "129 €" },
+      { service: "Замена заднего стекла и рамки", price: "270 €" },
+      { service: "Замена микрофона", price: "76 €" },
+      { service: "Замена динамика", price: "85 €" },
+      { service: "Замена камеры", price: "180 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 16 Pro",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "450 €", priceKopi: "220 €" },
-      { service: "Výmena batérie", priceOri: "140 €", priceKopi: "110 €" },
-      { service: "Výmena zadného skla", price: "115 €" },
-      { service: "Výmena zadného skla a rámu", price: "178 €" },
-      { service: "Výmena mikrofónu", price: "76 €" },
-      { service: "Výmena sluchátka", price: "85 €" },
-      { service: "Výmena kamery", price: "180 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "450 €", priceKopi: "220 €" },
+      { service: "Замена батареи", priceOri: "140 €", priceKopi: "110 €" },
+      { service: "Замена заднего стекла", price: "115 €" },
+      { service: "Замена заднего стекла и рамки", price: "178 €" },
+      { service: "Замена микрофона", price: "76 €" },
+      { service: "Замена динамика", price: "85 €" },
+      { service: "Замена камеры", price: "180 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 16",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "420 €", priceKopi: "220 €" },
-      { service: "Výmena batérie", priceOri: "130 €", priceKopi: "110 €" },
-      { service: "Výmena zadného skla", price: "115 €" },
-      { service: "Výmena zadného skla a rámu", price: "178 €" },
-      { service: "Výmena mikrofónu", price: "76 €" },
-      { service: "Výmena sluchátka", price: "85 €" },
-      { service: "Výmena kamery", price: "180 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "420 €", priceKopi: "220 €" },
+      { service: "Замена батареи", priceOri: "130 €", priceKopi: "110 €" },
+      { service: "Замена заднего стекла", price: "115 €" },
+      { service: "Замена заднего стекла и рамки", price: "178 €" },
+      { service: "Замена микрофона", price: "76 €" },
+      { service: "Замена динамика", price: "85 €" },
+      { service: "Замена камеры", price: "180 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 15 Pro Max",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "340 €", priceKopi: "300 €" },
-      { service: "Výmena batérie", priceOri: "115 €", priceKopi: "88 €" },
-      { service: "Výmena zadného skla", price: "95 €" },
-      { service: "Výmena zadného skla a rámu", price: "240 €" },
-      { service: "Výmena mikrofónu", price: "68 €" },
-      { service: "Výmena sluchátka", price: "70 €" },
-      { service: "Výmena kamery", price: "132 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "340 €", priceKopi: "300 €" },
+      { service: "Замена батареи", priceOri: "115 €", priceKopi: "88 €" },
+      { service: "Замена заднего стекла", price: "95 €" },
+      { service: "Замена заднего стекла и рамки", price: "240 €" },
+      { service: "Замена микрофона", price: "68 €" },
+      { service: "Замена динамика", price: "70 €" },
+      { service: "Замена камеры", price: "132 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 15 Pro",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "310 €", priceKopi: "270 €" },
-      { service: "Výmena batérie", priceOri: "110 €", priceKopi: "88 €" },
-      { service: "Výmena zadného skla", price: "95 €" },
-      { service: "Výmena zadného skla a rámu", price: "190 €" },
-      { service: "Výmena mikrofónu", price: "68 €" },
-      { service: "Výmena sluchátka", price: "70 €" },
-      { service: "Výmena kamery", price: "132 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "310 €", priceKopi: "270 €" },
+      { service: "Замена батареи", priceOri: "110 €", priceKopi: "88 €" },
+      { service: "Замена заднего стекла", price: "95 €" },
+      { service: "Замена заднего стекла и рамки", price: "190 €" },
+      { service: "Замена микрофона", price: "68 €" },
+      { service: "Замена динамика", price: "70 €" },
+      { service: "Замена камеры", price: "132 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 15",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "220 €", priceKopi: "180 €" },
-      { service: "Výmena batérie", priceOri: "105 €", priceKopi: "83 €" },
-      { service: "Výmena zadného skla", price: "90 €" },
-      { service: "Výmena zadného skla a rámu", price: "174 €" },
-      { service: "Výmena mikrofónu", price: "50 €" },
-      { service: "Výmena sluchátka", price: "70 €" },
-      { service: "Výmena kamery", price: "132 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "220 €", priceKopi: "180 €" },
+      { service: "Замена батареи", priceOri: "105 €", priceKopi: "83 €" },
+      { service: "Замена заднего стекла", price: "90 €" },
+      { service: "Замена заднего стекла и рамки", price: "174 €" },
+      { service: "Замена микрофона", price: "50 €" },
+      { service: "Замена динамика", price: "70 €" },
+      { service: "Замена камеры", price: "132 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 14 Pro Max",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "285 €", priceKopi: "220 €" },
-      { service: "Výmena batérie", priceOri: "110 €", priceKopi: "78 €" },
-      { service: "Výmena zadného skla", price: "90 €" },
-      { service: "Výmena zadného skla a rámu", price: "150 €" },
-      { service: "Výmena mikrofónu", price: "50 €" },
-      { service: "Výmena sluchátka", price: "55 €" },
-      { service: "Výmena kamery", price: "134 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "285 €", priceKopi: "220 €" },
+      { service: "Замена батареи", priceOri: "110 €", priceKopi: "78 €" },
+      { service: "Замена заднего стекла", price: "90 €" },
+      { service: "Замена заднего стекла и рамки", price: "150 €" },
+      { service: "Замена микрофона", price: "50 €" },
+      { service: "Замена динамика", price: "55 €" },
+      { service: "Замена камеры", price: "134 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 14 Pro",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "225 €", priceKopi: "180 €" },
-      { service: "Výmena batérie", priceOri: "110 €", priceKopi: "78 €" },
-      { service: "Výmena zadného skla", price: "90 €" },
-      { service: "Výmena zadného skla a rámu", price: "150 €" },
-      { service: "Výmena mikrofónu", price: "50 €" },
-      { service: "Výmena sluchátka", price: "55 €" },
-      { service: "Výmena kamery", price: "134 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "225 €", priceKopi: "180 €" },
+      { service: "Замена батареи", priceOri: "110 €", priceKopi: "78 €" },
+      { service: "Замена заднего стекла", price: "90 €" },
+      { service: "Замена заднего стекла и рамки", price: "150 €" },
+      { service: "Замена микрофона", price: "50 €" },
+      { service: "Замена динамика", price: "55 €" },
+      { service: "Замена камеры", price: "134 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 14",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "180 €", priceKopi: "140 €" },
-      { service: "Výmena batérie", priceOri: "105 €", priceKopi: "78 €" },
-      { service: "Výmena zadného skla", price: "90 €" },
-      { service: "Výmena zadného skla a rámu", price: "140 €" },
-      { service: "Výmena mikrofónu", price: "50 €" },
-      { service: "Výmena sluchátka", price: "55 €" },
-      { service: "Výmena kamery", price: "96 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "180 €", priceKopi: "140 €" },
+      { service: "Замена батареи", priceOri: "105 €", priceKopi: "78 €" },
+      { service: "Замена заднего стекла", price: "90 €" },
+      { service: "Замена заднего стекла и рамки", price: "140 €" },
+      { service: "Замена микрофона", price: "50 €" },
+      { service: "Замена динамика", price: "55 €" },
+      { service: "Замена камеры", price: "96 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 13 Pro Max",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "210 €", priceKopi: "164 €" },
-      { service: "Výmena batérie", priceOri: "110 €", priceKopi: "70 €" },
-      { service: "Výmena zadného skla", price: "85 €" },
-      { service: "Výmena zadného skla a rámu", price: "126 €" },
-      { service: "Výmena mikrofónu", price: "50 €" },
-      { service: "Výmena sluchátka", price: "55 €" },
-      { service: "Výmena kamery", price: "116 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "210 €", priceKopi: "164 €" },
+      { service: "Замена батареи", priceOri: "110 €", priceKopi: "70 €" },
+      { service: "Замена заднего стекла", price: "85 €" },
+      { service: "Замена заднего стекла и рамки", price: "126 €" },
+      { service: "Замена микрофона", price: "50 €" },
+      { service: "Замена динамика", price: "55 €" },
+      { service: "Замена камеры", price: "116 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 13 Pro",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "185 €", priceKopi: "148 €" },
-      { service: "Výmena batérie", priceOri: "110 €", priceKopi: "58 €" },
-      { service: "Výmena zadného skla", price: "85 €" },
-      { service: "Výmena zadného skla a rámu", price: "126 €" },
-      { service: "Výmena mikrofónu", price: "45 €" },
-      { service: "Výmena sluchátka", price: "45 €" },
-      { service: "Výmena kamery", price: "116 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "185 €", priceKopi: "148 €" },
+      { service: "Замена батареи", priceOri: "110 €", priceKopi: "58 €" },
+      { service: "Замена заднего стекла", price: "85 €" },
+      { service: "Замена заднего стекла и рамки", price: "126 €" },
+      { service: "Замена микрофона", price: "45 €" },
+      { service: "Замена динамика", price: "45 €" },
+      { service: "Замена камеры", price: "116 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 13",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "165 €", priceKopi: "125 €" },
-      { service: "Výmena batérie", priceOri: "100 €", priceKopi: "58 €" },
-      { service: "Výmena zadného skla", price: "85 €" },
-      { service: "Výmena zadného skla a rámu", price: "126 €" },
-      { service: "Výmena mikrofónu", price: "38 €" },
-      { service: "Výmena sluchátka", price: "38 €" },
-      { service: "Výmena kamery", price: "95 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "165 €", priceKopi: "125 €" },
+      { service: "Замена батареи", priceOri: "100 €", priceKopi: "58 €" },
+      { service: "Замена заднего стекла", price: "85 €" },
+      { service: "Замена заднего стекла и рамки", price: "126 €" },
+      { service: "Замена микрофона", price: "38 €" },
+      { service: "Замена динамика", price: "38 €" },
+      { service: "Замена камеры", price: "95 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 13 mini",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "165 €", priceKopi: "125 €" },
-      { service: "Výmena batérie", priceOri: "100 €", priceKopi: "58 €" },
-      { service: "Výmena zadného skla", price: "85 €" },
-      { service: "Výmena zadného skla a rámu", price: "126 €" },
-      { service: "Výmena mikrofónu", price: "38 €" },
-      { service: "Výmena sluchátka", price: "38 €" },
-      { service: "Výmena kamery", price: "95 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "165 €", priceKopi: "125 €" },
+      { service: "Замена батареи", priceOri: "100 €", priceKopi: "58 €" },
+      { service: "Замена заднего стекла", price: "85 €" },
+      { service: "Замена заднего стекла и рамки", price: "126 €" },
+      { service: "Замена микрофона", price: "38 €" },
+      { service: "Замена динамика", price: "38 €" },
+      { service: "Замена камеры", price: "95 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 12 Pro Max",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "160 €", priceKopi: "120 €" },
-      { service: "Výmena batérie", priceOri: "105 €", priceKopi: "55 €" },
-      { service: "Výmena zadného skla", price: "90 €" },
-      { service: "Výmena zadného skla a rámu", price: "125 €" },
-      { service: "Výmena mikrofónu", price: "38 €" },
-      { service: "Výmena sluchátka", price: "38 €" },
-      { service: "Výmena kamery", price: "110 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "160 €", priceKopi: "120 €" },
+      { service: "Замена батареи", priceOri: "105 €", priceKopi: "55 €" },
+      { service: "Замена заднего стекла", price: "90 €" },
+      { service: "Замена заднего стекла и рамки", price: "125 €" },
+      { service: "Замена микрофона", price: "38 €" },
+      { service: "Замена динамика", price: "38 €" },
+      { service: "Замена камеры", price: "110 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 12 Pro",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "120 €", priceKopi: "98 €" },
-      { service: "Výmena batérie", priceOri: "100 €", priceKopi: "50 €" },
-      { service: "Výmena zadného skla", price: "85 €" },
-      { service: "Výmena zadného skla a rámu", price: "115 €" },
-      { service: "Výmena mikrofónu", price: "38 €" },
-      { service: "Výmena sluchátka", price: "38 €" },
-      { service: "Výmena kamery", price: "110 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "120 €", priceKopi: "98 €" },
+      { service: "Замена батареи", priceOri: "100 €", priceKopi: "50 €" },
+      { service: "Замена заднего стекла", price: "85 €" },
+      { service: "Замена заднего стекла и рамки", price: "115 €" },
+      { service: "Замена микрофона", price: "38 €" },
+      { service: "Замена динамика", price: "38 €" },
+      { service: "Замена камеры", price: "110 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 12",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "120 €", priceKopi: "98 €" },
-      { service: "Výmena batérie", priceOri: "100 €", priceKopi: "50 €" },
-      { service: "Výmena zadného skla", price: "85 €" },
-      { service: "Výmena zadného skla a rámu", price: "115 €" },
-      { service: "Výmena mikrofónu", price: "38 €" },
-      { service: "Výmena sluchátka", price: "38 €" },
-      { service: "Výmena kamery", price: "95 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "120 €", priceKopi: "98 €" },
+      { service: "Замена батареи", priceOri: "100 €", priceKopi: "50 €" },
+      { service: "Замена заднего стекла", price: "85 €" },
+      { service: "Замена заднего стекла и рамки", price: "115 €" },
+      { service: "Замена микрофона", price: "38 €" },
+      { service: "Замена динамика", price: "38 €" },
+      { service: "Замена камеры", price: "95 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 12 mini",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "110 €", priceKopi: "88 €" },
-      { service: "Výmena batérie", priceOri: "100 €", priceKopi: "50 €" },
-      { service: "Výmena zadného skla", price: "85 €" },
-      { service: "Výmena zadného skla a rámu", price: "105 €" },
-      { service: "Výmena mikrofónu", price: "38 €" },
-      { service: "Výmena sluchátka", price: "38 €" },
-      { service: "Výmena kamery", price: "95 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "110 €", priceKopi: "88 €" },
+      { service: "Замена батареи", priceOri: "100 €", priceKopi: "50 €" },
+      { service: "Замена заднего стекла", price: "85 €" },
+      { service: "Замена заднего стекла и рамки", price: "105 €" },
+      { service: "Замена микрофона", price: "38 €" },
+      { service: "Замена динамика", price: "38 €" },
+      { service: "Замена камеры", price: "95 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 11 Pro Max",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "125 €", priceKopi: "110 €" },
-      { service: "Výmena batérie", priceOri: "67 €", priceKopi: "47 €" },
-      { service: "Výmena zadného skla", price: "70 €" },
-      { service: "Výmena zadného skla a rámu", price: "110 €" },
-      { service: "Výmena mikrofónu", price: "38 €" },
-      { service: "Výmena sluchátka", price: "38 €" },
-      { service: "Výmena kamery", price: "85 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "125 €", priceKopi: "110 €" },
+      { service: "Замена батареи", priceOri: "67 €", priceKopi: "47 €" },
+      { service: "Замена заднего стекла", price: "70 €" },
+      { service: "Замена заднего стекла и рамки", price: "110 €" },
+      { service: "Замена микрофона", price: "38 €" },
+      { service: "Замена динамика", price: "38 €" },
+      { service: "Замена камеры", price: "85 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 11 Pro",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "110 €", priceKopi: "85 €" },
-      { service: "Výmena batérie", priceOri: "63 €", priceKopi: "47 €" },
-      { service: "Výmena zadného skla", price: "65 €" },
-      { service: "Výmena zadného skla a rámu", price: "105 €" },
-      { service: "Výmena mikrofónu", price: "38 €" },
-      { service: "Výmena sluchátka", price: "38 €" },
-      { service: "Výmena kamery", price: "85 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "110 €", priceKopi: "85 €" },
+      { service: "Замена батареи", priceOri: "63 €", priceKopi: "47 €" },
+      { service: "Замена заднего стекла", price: "65 €" },
+      { service: "Замена заднего стекла и рамки", price: "105 €" },
+      { service: "Замена микрофона", price: "38 €" },
+      { service: "Замена динамика", price: "38 €" },
+      { service: "Замена камеры", price: "85 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
   {
     name: "iPhone 11",
-    warranty: "Záruka na všetky opravy 6 až 12 mesiacov",
+    warranty: "Гарантия на все ремонты от 6 до 12 месяцев",
     prices: [
-      { service: "Výmena displeja", priceOri: "75 €", priceKopi: "55 €" },
-      { service: "Výmena batérie", priceOri: "60 €", priceKopi: "45 €" },
-      { service: "Výmena zadného skla", price: "60 €" },
-      { service: "Výmena zadného skla a rámu", price: "75 €" },
-      { service: "Výmena mikrofónu", price: "35 €" },
-      { service: "Výmena sluchátka", price: "35 €" },
-      { service: "Výmena kamery", price: "55 €" },
-      { service: "Oprava nabíjania", price: "Od 10 €" },
-      { service: "Oprava základnej dosky", price: "Od 70 €" },
+      { service: "Замена дисплея", priceOri: "75 €", priceKopi: "55 €" },
+      { service: "Замена батареи", priceOri: "60 €", priceKopi: "45 €" },
+      { service: "Замена заднего стекла", price: "60 €" },
+      { service: "Замена заднего стекла и рамки", price: "75 €" },
+      { service: "Замена микрофона", price: "35 €" },
+      { service: "Замена динамика", price: "35 €" },
+      { service: "Замена камеры", price: "55 €" },
+      { service: "Ремонт зарядки", price: "От 10 €" },
+      { service: "Ремонт материнской платы", price: "От 70 €" },
     ]
   },
 ];
 
 const laptopServices: LaptopService[] = [
   {
-    name: "Bazová",
+    name: "Базовая",
     price: "48 €",
-    description: "Vhodné pre kancelárske notebooky. Používa sa termopasta Noctua.",
+    description: "Подходит для офисных ноутбуков. Используется термопаста Noctua.",
   },
   {
-    name: "Štandard",
+    name: "Стандарт",
     price: "63 €",
-    description: "Herné notebooky – čistenie chladiaceho systému, výmena termopasty (Thermal Grizzly) a termopodložiek.",
-    badge: "BEST CHOICE",
+    description: "Игровые ноутбуки – чистка системы охлаждения, замена термопасты (Thermal Grizzly) и термопрокладок.",
+    badge: "ЛУЧШИЙ ВЫБОР",
   },
   {
-    name: "Prémium",
+    name: "Премиум",
     price: "79 €",
-    description: "Herné notebooky – Intel Core i7, Ryzen 7 a vyššie. Čistenie a výmena tekutého kovu / PTM 9750, výmena termopodložiek prémiovej triedy.",
+    description: "Игровые ноутбуки – Intel Core i7, Ryzen 7 и выше. Чистка и замена жидкого металла / PTM 9750, замена термопрокладок премиум-класса.",
   },
 ];
 
@@ -394,11 +394,11 @@ function PriceAccordion({ model }: { model: PhoneModel }) {
                 {item.priceOri && item.priceKopi ? (
                   <>
                     <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold">
-                      <span className="text-xs text-blue-500">ORI</span>
+                      <span className="text-xs text-blue-500">ОРИГ</span>
                       {item.priceOri}
                     </span>
                     <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm font-semibold">
-                      <span className="text-xs text-slate-500">KÓPIA</span>
+                      <span className="text-xs text-slate-500">КОПИЯ</span>
                       {item.priceKopi}
                     </span>
                   </>
@@ -421,7 +421,7 @@ function PriceAccordion({ model }: { model: PhoneModel }) {
   );
 }
 
-export default function PricePage() {
+export default function CenaPage() {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Global Circuit Pattern */}
@@ -433,8 +433,8 @@ export default function PricePage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <Link to="/" className="flex items-center gap-2">
-              <img src={logo} alt="Iršava tech logo" className="h-9 w-auto" />
+            <Link to="/ru" className="flex items-center gap-2">
+              <img src={logo} alt="Iršava tech логотип" className="h-9 w-auto" />
               <span className="font-oswald text-lg tracking-wide">
                 <span className="text-slate-900">IRŠAVA</span>{' '}
                 <span className="text-blue-700">TECH</span>
@@ -443,15 +443,15 @@ export default function PricePage() {
 
             <div className="flex items-center gap-4">
               <Link
-                to="/"
+                to="/ru"
                 className="text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors"
               >
-                Domov
+                Главная
               </Link>
               <a href="tel:+421952240671">
                 <Button className="bg-orange-600 hover:bg-orange-700 text-white font-medium px-5 py-2.5 rounded-full shadow-lg shadow-orange-600/20">
                   <Phone className="w-4 h-4 mr-2" />
-                  Zavolať
+                  Позвонить
                 </Button>
               </a>
             </div>
@@ -468,7 +468,7 @@ export default function PricePage() {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-600 mb-6"
           >
-            Cenník opráv
+            Прайс-лист ремонтов
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -476,7 +476,7 @@ export default function PricePage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-slate-600 max-w-2xl mx-auto"
           >
-            Transparentné ceny pre všetky modely iPhone a notebooky
+            Прозрачные цены для всех моделей iPhone и ноутбуков
           </motion.p>
         </div>
       </section>
@@ -484,7 +484,7 @@ export default function PricePage() {
       {/* iPhone Section */}
       <section className="relative py-20">
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 mb-10">Opravy iPhone</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-10">Ремонт iPhone</h2>
 
           <div className="space-y-4">
             {iphoneModels.map((model) => (
@@ -502,7 +502,7 @@ export default function PricePage() {
               <Laptop className="w-6 h-6 text-white" />
             </div>
             <h2 className="text-3xl font-bold text-slate-900">
-              Čistenie a výmena termopasty
+              Чистка и замена термопасты
             </h2>
           </div>
 
@@ -543,10 +543,10 @@ export default function PricePage() {
       <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Potrebujete opravu?
+            Нужен ремонт?
           </h2>
           <p className="text-blue-100 mb-8 text-lg">
-            Zavolajte nám a dohodnite si termín ešte dnes
+            Позвоните нам и запишитесь на прием уже сегодня
           </p>
           <a href="tel:+421952240671">
             <Button className="bg-white text-blue-600 hover:bg-blue-50 font-bold px-8 py-4 text-lg rounded-full shadow-xl">
@@ -557,7 +557,7 @@ export default function PricePage() {
         </div>
       </section>
 
-      <Footer />
+      <FooterRu />
     </div>
   );
 }

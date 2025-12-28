@@ -44,10 +44,10 @@ const localBusinessSchema: LocalBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Iršava tech",
-  image: "https://irsavatech.sk/og-image.jpg",
-  "@id": "https://irsavatech.sk",
-  url: "https://irsavatech.sk",
-  telephone: "+421910123456",
+  image: "https://www.irsava-tech.sk/og-image.png",
+  "@id": "https://www.irsava-tech.sk",
+  url: "https://www.irsava-tech.sk",
+  telephone: "+421952240671",
   priceRange: "€€",
   address: {
     "@type": "PostalAddress",
@@ -77,11 +77,11 @@ export default function Seo({
   description,
   keywords,
   lang = 'sk',
-  image = '/og-image.jpg',
+  image = '/og-image.png',
   url,
   type = 'website'
 }: SeoProps) {
-  const siteUrl = 'https://irsavatech.sk';
+  const siteUrl = 'https://www.irsava-tech.sk';
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
   const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 

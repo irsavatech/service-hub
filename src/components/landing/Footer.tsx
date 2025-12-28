@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,12 +10,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-10 lg:gap-16">
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-400 flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">IT</span>
-              </div>
-              <span className="text-xl font-semibold tracking-tight">
-                Iršava <span className="text-blue-400">tech</span>
-              </span>
+              <img src={logo} alt="Iršava tech logo" className="h-10 w-auto brightness-0 invert" />
             </div>
             <p className="text-slate-400 leading-relaxed">
               Profesionálny servis mobilov a notebookov v Bratislave. Špecializujeme sa na komplexné opravy, ktoré iní nezvládajú.

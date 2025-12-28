@@ -20,8 +20,11 @@ export default function ReviewsSection() {
   }, []);
 
   return (
-    <section id="recenzie" className="relative py-24 md:py-32 bg-slate-900 overflow-hidden">
-      <div className="absolute -top-40 -left-40 w-80 h-80 bg-blue-900 rounded-full blur-3xl opacity-20" />
+    <section id="recenzie" className="relative py-24 md:py-32 bg-background overflow-hidden">
+      <CircuitPattern opacity={0.3} />
+      
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+      <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-30" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -31,16 +34,16 @@ export default function ReviewsSection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-green-900/50 text-green-400 font-medium text-sm mb-6">
+          <span className="inline-block px-4 py-2 rounded-full bg-green-100 text-green-700 font-medium text-sm mb-6">
             Recenzie
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
             Čo hovoria{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-green-500">
               o nás
             </span>
           </h2>
-          <p className="text-lg text-slate-400 leading-relaxed">
+          <p className="text-lg text-slate-600 leading-relaxed">
             Prečítajte si, čo o nás píšu naši spokojní zákazníci na Google.
           </p>
         </motion.div>

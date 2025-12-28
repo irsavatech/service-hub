@@ -101,7 +101,7 @@ export default function ServicesSection() {
                     {service.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 justify-center">
                     {service.features.map((feature) => (
                       <span
                         key={feature}

@@ -1,13 +1,29 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import logo from '@/assets/logo.png';
+
+const servicePages = [
+  { label: 'Výmena displeja', href: '/vymena-displeja' },
+  { label: 'Oprava nabíjania', href: '/oprava-nabijania' },
+  { label: 'Diagnostika notebooku', href: '/diagnostika-notebooku' },
+  { label: 'Odvírovanie počítača', href: '/odvirovanie-pocitaca' },
+  { label: 'Čistenie od prachu', href: '/cistenie-od-prachu' },
+  { label: 'Výmena pasty', href: '/vymena-teplovodivej-pasty' },
+];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,7 +34,6 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    { label: 'Služby', href: '#sluzby' },
     { label: 'Cenník', href: '/price', isRoute: true },
     { label: 'O nás', href: '#o-nas' },
     { label: 'Kontakt', href: '#kontakt' },
@@ -50,6 +65,22 @@ export default function Header() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors flex items-center gap-1 outline-none">
+                Služby
+                <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-56">
+                {servicePages.map((service) => (
+                  <DropdownMenuItem key={service.href} asChild>
+                    <Link to={service.href} className="cursor-pointer">
+                      {service.label}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
             {navItems.map((item) => 
               item.isRoute ? (
                 <Link
@@ -96,6 +127,27 @@ export default function Header() {
         className="md:hidden overflow-hidden bg-background border-t border-slate-100"
       >
         <nav className="px-4 py-4 space-y-2">
+          <button
+            onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+            className="w-full flex items-center justify-between py-3 px-4 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-colors"
+          >
+            Služby
+            <ChevronDown className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+          </button>
+          {mobileServicesOpen && (
+            <div className="pl-4 space-y-1">
+              {servicePages.map((service) => (
+                <Link
+                  key={service.href}
+                  to={service.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-2 px-4 text-slate-600 text-sm rounded-lg hover:bg-slate-50 transition-colors"
+                >
+                  {service.label}
+                </Link>
+              ))}
+            </div>
+          )}
           {navItems.map((item) => 
             item.isRoute ? (
               <Link

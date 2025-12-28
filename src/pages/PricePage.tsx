@@ -423,7 +423,12 @@ function PriceAccordion({ model }: { model: PhoneModel }) {
 
 export default function PricePage() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Global Circuit Pattern */}
+      <CircuitPattern opacity={0.3} className="fixed" />
+      <div className="fixed top-1/4 -left-32 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-30 pointer-events-none" />
+      <div className="fixed bottom-1/4 -right-32 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-30 pointer-events-none" />
+      <div className="fixed top-3/4 left-1/3 w-64 h-64 bg-orange-50 rounded-full blur-3xl opacity-20 pointer-events-none" />
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -477,11 +482,7 @@ export default function PricePage() {
       </section>
 
       {/* iPhone Section */}
-      <section className="relative py-20 bg-background overflow-hidden">
-        <CircuitPattern opacity={0.3} />
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-30" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-30" />
-        
+      <section className="relative py-20">
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-10">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
@@ -499,7 +500,7 @@ export default function PricePage() {
       </section>
 
       {/* Laptop Section */}
-      <section className="py-20 bg-white">
+      <section className="relative py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-10">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">

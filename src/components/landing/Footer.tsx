@@ -44,7 +44,7 @@ export default function Footer() {
               </a>
               <a href="https://www.instagram.com/irsava.tech?igsh=MXQxNW1zaTV0cmx4Yw==" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-slate-400 hover:text-primary-foreground transition-colors">
                 <Instagram className="w-5 h-5" />
-                <span>@irsava.tech</span>
+                <span>irsava.tech</span>
               </a>
             </div>
           </div>

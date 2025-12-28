@@ -460,13 +460,13 @@ export default function PricePage() {
       </header>
 
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900">
+      <section className="pt-32 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-600 mb-6"
           >
             Cenník opráv
           </motion.h1>
@@ -474,7 +474,7 @@ export default function PricePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-slate-300 max-w-2xl mx-auto"
+            className="text-xl text-slate-600 max-w-2xl mx-auto"
           >
             Transparentné ceny pre všetky modely iPhone a notebooky
           </motion.p>

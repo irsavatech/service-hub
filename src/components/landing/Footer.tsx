@@ -1,7 +1,29 @@
 import { Phone, Mail, MapPin, Instagram } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '@/assets/logo.png';
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
+  const quickLinks = [
+    { label: 'Služby', hash: '#sluzby' },
+    { label: 'Cenník', hash: '#cennik' },
+    { label: 'Kontakt', hash: '#kontakt' },
+  ];
+
+  const handleQuickLinkClick = (hash: string) => {
+    if (isHomePage) {
+      // On home page, just scroll to section
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    // If not on home page, Link will navigate to /{hash} and then scroll
+  };
+
   return <footer id="o-nas" className="bg-slate-900 text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-3 gap-10 lg:gap-16">
@@ -21,9 +43,29 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-lg mb-6">Rýchle odkazy</h4>
             <nav className="space-y-3">
-              {['Služby', 'Cenník', 'Kontakt'].map(link => <a key={link} href={`#${link.toLowerCase().replace('í', 'i')}`} className="block text-slate-400 hover:text-primary-foreground transition-colors">
-                  {link}
-                </a>)}
+              {quickLinks.map(link => 
+                isHomePage ? (
+                  <a 
+                    key={link.label} 
+                    href={link.hash} 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleQuickLinkClick(link.hash);
+                    }}
+                    className="block text-slate-400 hover:text-primary-foreground transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link 
+                    key={link.label} 
+                    to={`/${link.hash}`}
+                    className="block text-slate-400 hover:text-primary-foreground transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
             </nav>
           </div>
 

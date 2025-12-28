@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://irsavatech.sk/sitemap.xml
+Sitemap: https://www.irsava-tech.sk/sitemap.xml

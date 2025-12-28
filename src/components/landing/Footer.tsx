@@ -38,9 +38,8 @@ export default function Footer() {
                 <span className="text-blue-400">TECH</span>
               </span>
             </div>
-            <p className="text-slate-400 leading-relaxed">Stanislav Zavydniak
-Karpatské námestie 7770/10A, 831 06 Bratislava, mestská časť Rača, Slovenská republika
-IČO: 53788656 DIČ: 3120946994
+            <p className="text-slate-400 leading-relaxed">Stanislav Zavydniak Karpatské námestie 7770/10A, 831 06 Bratislava
+IČO: 53788656 DIČ: 3120946994 
 Nie je platiteľ DPH.</p>
           </div>
 

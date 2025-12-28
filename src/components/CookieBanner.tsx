@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Cookie, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 export default function CookieBanner() {
@@ -45,9 +46,17 @@ export default function CookieBanner() {
             <h3 className="text-white font-semibold text-sm mb-1.5">
               Súbory cookie
             </h3>
-            <p className="text-slate-400 text-xs leading-relaxed mb-4">
+            <p className="text-slate-400 text-xs leading-relaxed mb-2">
               Táto stránka používa súbory cookie na zlepšenie vášho zážitku z prehliadania.
             </p>
+            
+            <Link 
+              to="/podmienky" 
+              className="text-primary text-xs hover:underline block mb-4"
+              onClick={() => setIsVisible(false)}
+            >
+              Ako spracúvame osobné údaje
+            </Link>
             
             <Button 
               onClick={handleAccept}

@@ -130,7 +130,7 @@ export default function PricingSection() {
             className="mt-8 text-center"
           >
             <Link to="/price">
-              <Button variant="outline" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-8 py-3 rounded-full">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-xl shadow-lg">
                 Zobraziť kompletný cenník
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>

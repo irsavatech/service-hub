@@ -9,6 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 import logo from '@/assets/logo.png';
 
 const servicePages = [
@@ -104,12 +105,15 @@ export default function Header() {
             )}
           </nav>
 
-          <a href="tel:+421952240671" className="hidden md:block">
-            <Button className="bg-orange-600 hover:bg-orange-700 text-primary-foreground font-medium px-5 py-2.5 rounded-full shadow-lg shadow-orange-600/20 transition-all hover:shadow-xl hover:shadow-orange-600/30 hover:-translate-y-0.5">
-              <Phone className="w-4 h-4 mr-2" />
-              Zavolať teraz
-            </Button>
-          </a>
+          <div className="hidden md:flex items-center gap-4">
+            <LanguageSwitcher currentLang="sk" />
+            <a href="tel:+421952240671">
+              <Button className="bg-orange-600 hover:bg-orange-700 text-primary-foreground font-medium px-5 py-2.5 rounded-full shadow-lg shadow-orange-600/20 transition-all hover:shadow-xl hover:shadow-orange-600/30 hover:-translate-y-0.5">
+                <Phone className="w-4 h-4 mr-2" />
+                Zavolať teraz
+              </Button>
+            </a>
+          </div>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -169,6 +173,9 @@ export default function Header() {
               </a>
             )
           )}
+          <div className="pt-2 px-4">
+            <LanguageSwitcher currentLang="sk" />
+          </div>
         </nav>
       </motion.div>
     </motion.header>

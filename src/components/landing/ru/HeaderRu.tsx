@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 import logo from '@/assets/logo.png';
 
 export default function HeaderRu() {
@@ -73,12 +74,15 @@ export default function HeaderRu() {
             )}
           </nav>
 
-          <a href="tel:+421952240671" className="hidden md:block">
-            <Button className="bg-orange-600 hover:bg-orange-700 text-primary-foreground font-medium px-5 py-2.5 rounded-full shadow-lg shadow-orange-600/20 transition-all hover:shadow-xl hover:shadow-orange-600/30 hover:-translate-y-0.5">
-              <Phone className="w-4 h-4 mr-2" />
-              Позвонить
-            </Button>
-          </a>
+          <div className="hidden md:flex items-center gap-4">
+            <LanguageSwitcher currentLang="ru" />
+            <a href="tel:+421952240671">
+              <Button className="bg-orange-600 hover:bg-orange-700 text-primary-foreground font-medium px-5 py-2.5 rounded-full shadow-lg shadow-orange-600/20 transition-all hover:shadow-xl hover:shadow-orange-600/30 hover:-translate-y-0.5">
+                <Phone className="w-4 h-4 mr-2" />
+                Позвонить
+              </Button>
+            </a>
+          </div>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -117,6 +121,9 @@ export default function HeaderRu() {
               </a>
             )
           )}
+          <div className="pt-2 px-4">
+            <LanguageSwitcher currentLang="ru" />
+          </div>
         </nav>
       </motion.div>
     </motion.header>

@@ -51,7 +51,7 @@ export default function HeroSection() {
                 </Button>
               </a>
               <a href="#sluzby">
-                <Button variant="outline" className="w-full sm:w-auto border-2 border-blue-200 hover:border-blue-300 hover:bg-blue-50 text-blue-700 font-semibold px-8 py-6 rounded-2xl text-lg transition-all">
+                <Button variant="outline" className="w-full sm:w-auto border-2 border-blue-200 hover:border-orange-300 hover:bg-orange-50 text-blue-700 hover:text-orange-600 font-semibold px-8 py-6 rounded-2xl text-lg transition-all">
                   Naše služby
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>

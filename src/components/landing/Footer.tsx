@@ -11,6 +11,10 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <img src={logo} alt="Iršava tech logo" className="h-10 w-auto brightness-0 invert" />
+              <div className="font-oswald leading-tight">
+                <div className="text-white text-lg tracking-wide">IRŠAVA</div>
+                <div className="text-blue-400 text-lg tracking-wide">TECH</div>
+              </div>
             </div>
             <p className="text-slate-400 leading-relaxed">
               Profesionálny servis mobilov a notebookov v Bratislave. Špecializujeme sa na komplexné opravy, ktoré iní nezvládajú.

@@ -460,7 +460,7 @@ export default function PricePage() {
       </header>
 
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900">
+      <section className="pt-32 pb-16 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}

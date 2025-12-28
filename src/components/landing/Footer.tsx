@@ -4,7 +4,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   return <footer id="o-nas" className="bg-slate-900 text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
+        <div className="grid md:grid-cols-3 gap-10 lg:gap-16">
           <div>
             <div className="flex items-center gap-2 mb-6">
               <img src={logo} alt="Iršava tech logo" className="h-9 w-auto brightness-0 invert" />
@@ -18,6 +18,14 @@ export default function Footer() {
             </p>
           </div>
 
+          <div>
+            <h4 className="font-semibold text-lg mb-6">Rýchle odkazy</h4>
+            <nav className="space-y-3">
+              {['Služby', 'Cenník', 'Kontakt'].map(link => <a key={link} href={`#${link.toLowerCase().replace('í', 'i')}`} className="block text-slate-400 hover:text-primary-foreground transition-colors">
+                  {link}
+                </a>)}
+            </nav>
+          </div>
 
           <div>
             <h4 className="font-semibold text-lg mb-6">Kontakt</h4>

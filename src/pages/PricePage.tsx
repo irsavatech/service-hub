@@ -484,12 +484,7 @@ export default function PricePage() {
       {/* iPhone Section */}
       <section className="relative py-20">
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-10">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
-              <Smartphone className="w-6 h-6 text-white" />
-            </div>
-            <h2 className="text-3xl font-bold text-slate-900">Opravy iPhone</h2>
-          </div>
+          <h2 className="text-3xl font-bold text-slate-900 mb-10">Opravy iPhone</h2>
 
           <div className="space-y-4">
             {iphoneModels.map((model) => (

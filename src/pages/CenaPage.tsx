@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import FooterRu from '@/components/landing/ru/FooterRu';
 import CircuitPattern from '@/components/landing/CircuitPattern';
 import logo from '@/assets/logo.png';
+import Seo from '@/components/Seo';
 
 interface PriceItem {
   service: string;
@@ -424,6 +425,13 @@ function PriceAccordion({ model }: { model: PhoneModel }) {
 export default function CenaPage() {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
+      <Seo
+        title="Прайс-лист | Iršava tech"
+        description="Цены на ремонт iPhone, смартфонов и ноутбуков в Братиславе. Замена дисплея, батареи, чистка и ремонт материнских плат."
+        keywords="цены на ремонт телефона, прайс-лист, ремонт iPhone, замена дисплея цена"
+        lang="ru"
+        url="/cena"
+      />
       {/* Global Circuit Pattern */}
       <CircuitPattern opacity={0.3} className="fixed" />
       <div className="fixed top-1/4 -left-32 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-30 pointer-events-none" />

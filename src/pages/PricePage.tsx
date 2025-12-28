@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import Footer from '@/components/landing/Footer';
 import CircuitPattern from '@/components/landing/CircuitPattern';
 import logo from '@/assets/logo.png';
+import Seo from '@/components/Seo';
 
 interface PriceItem {
   service: string;
@@ -424,6 +425,13 @@ function PriceAccordion({ model }: { model: PhoneModel }) {
 export default function PricePage() {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
+      <Seo
+        title="Cenník opráv | Iršava tech"
+        description="Cenník opráv iPhone, smartfónov a notebookov v Bratislave. Výmena displeja, batérie, čistenie a oprava základných dosiek."
+        keywords="cenník opravy telefónu, ceny opráv, oprava iPhone, výmena displeja cena"
+        lang="sk"
+        url="/price"
+      />
       {/* Global Circuit Pattern */}
       <CircuitPattern opacity={0.3} className="fixed" />
       <div className="fixed top-1/4 -left-32 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-30 pointer-events-none" />

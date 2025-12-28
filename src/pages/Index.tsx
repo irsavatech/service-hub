@@ -3,6 +3,7 @@ import HeroSection from '@/components/landing/HeroSection';
 import ServicesSection from '@/components/landing/ServicesSection';
 import PricingSection from '@/components/landing/PricingSection';
 import ContactSection from '@/components/landing/ContactSection';
+import ReviewsSection from '@/components/landing/ReviewsSection';
 import Footer from '@/components/landing/Footer';
 import MobileCTA from '@/components/landing/MobileCTA';
 
@@ -15,6 +16,7 @@ export default function Index() {
         <ServicesSection />
         <PricingSection />
         <ContactSection />
+        <ReviewsSection />
       </main>
       <Footer />
       <MobileCTA />

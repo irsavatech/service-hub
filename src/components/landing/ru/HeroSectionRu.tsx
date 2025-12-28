@@ -1,0 +1,144 @@
+import { motion } from 'framer-motion';
+import { MessageCircle, ArrowRight, Cpu, Microscope } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import CircuitPattern from '../CircuitPattern';
+
+export default function HeroSectionRu() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-20">
+      <CircuitPattern opacity={0.5} />
+      
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-30" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-30" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 mb-6"
+            >
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-sm font-medium text-blue-800">Профессиональный сервис в Братиславе</span>
+            </motion.div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
+              Экспертный ремонт{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-500">
+                телефонов
+              </span>{' '}
+              и{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-500">
+                ноутбуков
+              </span>
+            </h1>
+
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-8 max-w-xl">
+              Мы специализируемся на сложных ремонтах материнских плат, пайке процессоров (CPU/GPU) и восстановлении устройств, которые другие списали.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href="https://wa.me/421952240671" target="_blank" rel="noopener noreferrer">
+                <Button className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-primary-foreground font-semibold px-8 py-6 rounded-2xl text-lg shadow-xl shadow-green-600/20 transition-all hover:shadow-2xl hover:shadow-green-600/30 hover:-translate-y-1">
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  Написать в WhatsApp
+                </Button>
+              </a>
+              <a href="#uslugi">
+                <Button variant="outline" className="w-full sm:w-auto border-2 border-blue-200 hover:border-orange-300 hover:bg-orange-50 text-blue-700 hover:text-orange-600 font-semibold px-8 py-6 rounded-2xl text-lg transition-all">
+                  Наши услуги
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </a>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="flex flex-wrap gap-6 mt-10 pt-8 border-t border-slate-200"
+            >
+              <div className="flex items-center gap-2">
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                  <Cpu className="w-5 h-5 text-blue-700" />
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-900">BGA пайка</p>
+                  <p className="text-sm text-slate-500">Профессиональное оборудование</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
+                  <Microscope className="w-5 h-5 text-orange-600" />
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-900">Микроскопическая точность</p>
+                  <p className="text-sm text-slate-500">Для мельчайших компонентов</p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            className="relative hidden lg:block"
+          >
+            <div className="relative">
+              <div className="relative bg-gradient-to-br from-slate-100 to-background rounded-3xl p-8 shadow-2xl shadow-slate-200/50 border border-slate-100">
+                <img
+                  src="https://images.unsplash.com/photo-1588508065123-287b28e013da?w=800&q=80"
+                  alt="Профессиональный ремонт электроники"
+                  className="w-full h-80 object-cover rounded-2xl"
+                />
+                
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.8, duration: 0.6 }}
+                  className="absolute -top-4 -right-4 bg-background rounded-2xl p-4 shadow-xl border border-slate-100"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-900">Диагностика</p>
+                      <p className="text-sm text-green-600">Бесплатная консультация</p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1, duration: 0.6 }}
+                  className="absolute -bottom-4 -left-4 bg-background rounded-2xl p-4 shadow-xl border border-slate-100"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
+                      <Cpu className="w-6 h-6 text-blue-700" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-900">Ремонт CPU/GPU</p>
+                      <p className="text-sm text-blue-600">Специализация</p>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}

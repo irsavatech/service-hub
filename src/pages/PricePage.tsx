@@ -422,6 +422,73 @@ function PriceAccordion({ model }: { model: PhoneModel }) {
   );
 }
 
+interface Platform {
+  name: string;
+  icon: string;
+  description: string;
+  services: string[];
+}
+
+function PlatformAccordion({ platform }: { platform: Platform }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow"
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50 transition-colors"
+      >
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-600 to-green-700 flex items-center justify-center text-2xl">
+            {platform.icon}
+          </div>
+          <div>
+            <span className="font-semibold text-lg text-slate-900">{platform.name}</span>
+            <p className="text-sm text-slate-500">{platform.description}</p>
+          </div>
+        </div>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <ChevronDown className="w-6 h-6 text-slate-500" />
+        </motion.div>
+      </button>
+
+      <motion.div
+        initial={false}
+        animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        className="overflow-hidden"
+      >
+        <div className="p-5 pt-0 space-y-3">
+          {platform.services.map((service, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col sm:flex-row sm:items-center justify-between py-3 border-b border-slate-100 last:border-0"
+            >
+              <span className="text-slate-700 font-medium">{service}</span>
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mt-2 sm:mt-0">
+                Na dopyt
+              </span>
+            </div>
+          ))}
+
+          <div className="flex items-center gap-2 pt-3 text-green-600">
+            <Shield className="w-5 h-5" />
+            <span className="text-sm font-medium">Záruka na všetky opravy 6 až 12 mesiacov</span>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export default function PricePage() {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
@@ -499,6 +566,19 @@ export default function PricePage() {
               <PriceAccordion key={model.name} model={model} />
             ))}
           </div>
+
+          {/* Platforms - On Demand */}
+          <h2 className="text-3xl font-bold text-slate-900 mb-10 mt-16">Čo opravujeme</h2>
+          <div className="space-y-4">
+            {[
+              { name: "Android", icon: "🤖", description: "Samsung, Xiaomi, Huawei, OnePlus a ďalšie", services: ["Výmena displeja", "Výmena batérie", "Oprava nabíjania", "Výmena kamery", "Oprava základnej dosky"] },
+              { name: "Apple (iPad, MacBook, iMac)", icon: "🍎", description: "Tablety a počítače Apple", services: ["Výmena displeja", "Výmena batérie", "Čistenie a údržba", "Oprava klávesnice", "Oprava základnej dosky"] },
+              { name: "Windows notebooky a PC", icon: "🪟", description: "Notebooky a PC všetkých značiek", services: ["Výmena displeja", "Výmena batérie", "Čistenie a výmena pasty", "Oprava nabíjania", "Oprava základnej dosky"] },
+              { name: "macOS zariadenia", icon: "💻", description: "MacBook Air, MacBook Pro, iMac", services: ["Výmena displeja", "Výmena batérie", "Čistenie a výmena pasty", "Oprava klávesnice", "Oprava základnej dosky"] },
+            ].map((platform) => (
+              <PlatformAccordion key={platform.name} platform={platform} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -541,37 +621,6 @@ export default function PricePage() {
                 <p className="text-slate-600 text-sm leading-relaxed">
                   {service.description}
                 </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Platforms Section */}
-      <section className="relative py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 mb-10">Čo opravujeme</h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { name: "Android", icon: "🤖", description: "Samsung, Xiaomi, Huawei, OnePlus a ďalšie" },
-              { name: "Apple", icon: "🍎", description: "iPhone, iPad, MacBook, iMac" },
-              { name: "Windows", icon: "🪟", description: "Notebooky a PC všetkých značiek" },
-              { name: "macOS", icon: "💻", description: "MacBook Air, MacBook Pro, iMac" },
-            ].map((platform) => (
-              <motion.div
-                key={platform.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="p-6 rounded-2xl border-2 border-slate-200 bg-white hover:shadow-lg transition-shadow text-center"
-              >
-                <span className="text-4xl mb-4 block">{platform.icon}</span>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{platform.name}</h3>
-                <p className="text-slate-600 text-sm mb-4">{platform.description}</p>
-                <span className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold">
-                  Na dopyt
-                </span>
               </motion.div>
             ))}
           </div>

@@ -547,6 +547,37 @@ export default function PricePage() {
         </div>
       </section>
 
+      {/* Platforms Section */}
+      <section className="relative py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-slate-900 mb-10">Čo opravujeme</h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { name: "Android", icon: "🤖", description: "Samsung, Xiaomi, Huawei, OnePlus a ďalšie" },
+              { name: "Apple", icon: "🍎", description: "iPhone, iPad, MacBook, iMac" },
+              { name: "Windows", icon: "🪟", description: "Notebooky a PC všetkých značiek" },
+              { name: "macOS", icon: "💻", description: "MacBook Air, MacBook Pro, iMac" },
+            ].map((platform) => (
+              <motion.div
+                key={platform.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="p-6 rounded-2xl border-2 border-slate-200 bg-white hover:shadow-lg transition-shadow text-center"
+              >
+                <span className="text-4xl mb-4 block">{platform.icon}</span>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{platform.name}</h3>
+                <p className="text-slate-600 text-sm mb-4">{platform.description}</p>
+                <span className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold">
+                  Na dopyt
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

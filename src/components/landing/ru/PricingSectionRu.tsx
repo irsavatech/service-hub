@@ -1,6 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Sparkles, Monitor, Smartphone, Shield, HardDrive, Send, ArrowRight } from 'lucide-react';
+import { Check, Sparkles, Monitor, Smartphone, Shield, HardDrive, Send, ArrowRight, Laptop, TabletSmartphone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -38,6 +38,37 @@ const pricingItems = [
     price: '23 €',
     description: 'Глубокая чистка динамиков, портов и внутренностей',
     icon: Smartphone
+  }
+];
+
+const platformItems = [
+  {
+    service: 'Ремонт Android устройств',
+    price: 'По запросу',
+    description: 'Samsung, Xiaomi, Huawei, OnePlus и другие Android телефоны и планшеты',
+    icon: TabletSmartphone,
+    platforms: ['Android']
+  },
+  {
+    service: 'Ремонт Apple устройств',
+    price: 'По запросу',
+    description: 'iPhone, iPad, MacBook, iMac и другие продукты Apple',
+    icon: TabletSmartphone,
+    platforms: ['Apple']
+  },
+  {
+    service: 'Ремонт Windows ноутбуков',
+    price: 'По запросу',
+    description: 'Dell, HP, Lenovo, ASUS, Acer и другие Windows устройства',
+    icon: Laptop,
+    platforms: ['Windows']
+  },
+  {
+    service: 'Ремонт macOS устройств',
+    price: 'По запросу',
+    description: 'MacBook Air, MacBook Pro, iMac, Mac Mini и Mac Studio',
+    icon: Laptop,
+    platforms: ['macOS']
   }
 ];
 
@@ -120,6 +151,49 @@ export default function PricingSectionRu() {
               </motion.div>
             ))}
           </div>
+
+          {/* Platform items - on demand */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-10"
+          >
+            <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <span>Что ремонтируем</span>
+              <span className="text-sm font-normal text-slate-500">— Android, Apple, Windows, macOS</span>
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {platformItems.map((item, index) => (
+                <motion.div
+                  key={item.service}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                  className="group p-5 rounded-2xl border border-slate-200 bg-background hover:border-green-300 hover:shadow-md transition-all"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="shrink-0 w-12 h-12 rounded-xl bg-green-50 group-hover:bg-green-100 flex items-center justify-center transition-colors">
+                      <item.icon className="w-6 h-6 text-green-600" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-base font-semibold text-slate-900 mb-1">
+                        {item.service}
+                      </h4>
+                      <p className="text-sm text-slate-500 mb-2">
+                        {item.description}
+                      </p>
+                      <span className="inline-block px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-xs font-semibold">
+                        {item.price}
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
 
           {/* Button to full pricing */}
           <motion.div

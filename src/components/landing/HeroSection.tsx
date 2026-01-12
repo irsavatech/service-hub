@@ -83,42 +83,6 @@ export default function HeroSection() {
                 </div>
               </div>
             </motion.div>
-
-            {/* Platforms we repair */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              className="mt-8"
-            >
-              <p className="text-sm font-medium text-slate-500 mb-4">Čo opravujeme:</p>
-              <div className="flex flex-wrap gap-3">
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-                  </svg>
-                  <span className="text-sm font-medium text-slate-700">Apple</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200">
-                  <svg className="w-5 h-5 text-green-600" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17.523 2c-.963 0-1.813.653-2.326 1.26-.457.54-.803 1.273-.803 2.04 0 .07.01.14.013.21-.4.03-.72.08-1.024.16a4.988 4.988 0 0 0-.964.35c-.147.066-.286.144-.422.222l-.17.1a5.089 5.089 0 0 0-.327.22l-.063.05a4.99 4.99 0 0 0-.95 1.04 5.09 5.09 0 0 0-.37.58 5.008 5.008 0 0 0-.56 2.3v6.94c0 .66.13 1.29.37 1.87.24.58.59 1.09 1.03 1.53.44.44.95.79 1.53 1.03.58.24 1.21.37 1.87.37h3.88c.66 0 1.29-.13 1.87-.37.58-.24 1.09-.59 1.53-1.03.44-.44.79-.95 1.03-1.53.24-.58.37-1.21.37-1.87v-6.94c0-.82-.16-1.6-.48-2.3a5.07 5.07 0 0 0-1.32-1.84 5.036 5.036 0 0 0-1.96-1.18c-.37-.13-.76-.23-1.17-.28.01-.07.02-.14.02-.21 0-.767-.346-1.5-.803-2.04C19.337 2.653 18.486 2 17.523 2zM6.477 2C5.514 2 4.663 2.653 4.15 3.26c-.457.54-.803 1.273-.803 2.04 0 .07.01.14.013.21-.4.03-.72.08-1.024.16a4.988 4.988 0 0 0-.964.35c-.147.066-.286.144-.422.222l-.17.1a5.089 5.089 0 0 0-.327.22l-.063.05a4.99 4.99 0 0 0-.95 1.04 5.09 5.09 0 0 0-.37.58 5.008 5.008 0 0 0-.56 2.3v6.94c0 .66.13 1.29.37 1.87.24.58.59 1.09 1.03 1.53.44.44.95.79 1.53 1.03.58.24 1.21.37 1.87.37h3.88c.66 0 1.29-.13 1.87-.37.58-.24 1.09-.59 1.53-1.03.44-.44.79-.95 1.03-1.53.24-.58.37-1.21.37-1.87v-6.94c0-.82-.16-1.6-.48-2.3a5.07 5.07 0 0 0-1.32-1.84 5.036 5.036 0 0 0-1.96-1.18c-.37-.13-.76-.23-1.17-.28.01-.07.02-.14.02-.21 0-.767-.346-1.5-.803-2.04C8.29 2.653 7.44 2 6.477 2z"/>
-                  </svg>
-                  <span className="text-sm font-medium text-slate-700">Android</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200">
-                  <svg className="w-5 h-5 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
-                  </svg>
-                  <span className="text-sm font-medium text-slate-700">Windows</span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                  </svg>
-                  <span className="text-sm font-medium text-slate-700">macOS</span>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
 
           <motion.div

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Smartphone, Laptop, Shield, Phone } from 'lucide-react';
+import { ChevronDown, Smartphone, Laptop, Shield, Phone, Tablet, Monitor } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import FooterRu from '@/components/landing/ru/FooterRu';
@@ -424,13 +424,21 @@ function PriceAccordion({ model }: { model: PhoneModel }) {
 
 interface Platform {
   name: string;
-  icon: string;
+  iconType: 'android' | 'apple' | 'windows' | 'macos';
   description: string;
   services: string[];
 }
 
+const platformIcons = {
+  android: { Icon: Smartphone, gradient: 'from-green-600 to-green-700' },
+  apple: { Icon: Tablet, gradient: 'from-slate-700 to-slate-800' },
+  windows: { Icon: Monitor, gradient: 'from-blue-500 to-blue-600' },
+  macos: { Icon: Laptop, gradient: 'from-slate-600 to-slate-700' },
+};
+
 function PlatformAccordion({ platform }: { platform: Platform }) {
   const [isOpen, setIsOpen] = useState(false);
+  const { Icon, gradient } = platformIcons[platform.iconType];
 
   return (
     <motion.div
@@ -444,8 +452,8 @@ function PlatformAccordion({ platform }: { platform: Platform }) {
         className="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50 transition-colors"
       >
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-600 to-green-700 flex items-center justify-center text-2xl">
-            {platform.icon}
+          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center`}>
+            <Icon className="w-6 h-6 text-white" />
           </div>
           <div>
             <span className="font-semibold text-lg text-slate-900">{platform.name}</span>
@@ -473,7 +481,7 @@ function PlatformAccordion({ platform }: { platform: Platform }) {
               className="flex flex-col sm:flex-row sm:items-center justify-between py-3 border-b border-slate-100 last:border-0"
             >
               <span className="text-slate-700 font-medium">{service}</span>
-              <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mt-2 sm:mt-0">
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-orange-50 text-orange-700 text-sm font-semibold mt-2 sm:mt-0">
                 По запросу
               </span>
             </div>
@@ -571,10 +579,10 @@ export default function CenaPage() {
           <h2 className="text-3xl font-bold text-slate-900 mb-10 mt-16">Что ремонтируем</h2>
           <div className="space-y-4">
             {[
-              { name: "Android", icon: "🤖", description: "Samsung, Xiaomi, Huawei, OnePlus и другие", services: ["Замена дисплея", "Замена батареи", "Ремонт зарядки", "Замена камеры", "Ремонт материнской платы"] },
-              { name: "Apple (iPad, MacBook, iMac)", icon: "🍎", description: "Планшеты и компьютеры Apple", services: ["Замена дисплея", "Замена батареи", "Чистка и обслуживание", "Ремонт клавиатуры", "Ремонт материнской платы"] },
-              { name: "Windows ноутбуки и ПК", icon: "🪟", description: "Ноутбуки и ПК всех брендов", services: ["Замена дисплея", "Замена батареи", "Чистка и замена пасты", "Ремонт зарядки", "Ремонт материнской платы"] },
-              { name: "macOS устройства", icon: "💻", description: "MacBook Air, MacBook Pro, iMac", services: ["Замена дисплея", "Замена батареи", "Чистка и замена пасты", "Ремонт клавиатуры", "Ремонт материнской платы"] },
+              { name: "Android", iconType: 'android' as const, description: "Samsung, Xiaomi, Huawei, OnePlus и другие", services: ["Замена дисплея", "Замена батареи", "Ремонт зарядки", "Замена камеры", "Ремонт материнской платы"] },
+              { name: "Apple (iPad, MacBook, iMac)", iconType: 'apple' as const, description: "Планшеты и компьютеры Apple", services: ["Замена дисплея", "Замена батареи", "Чистка и обслуживание", "Ремонт клавиатуры", "Ремонт материнской платы"] },
+              { name: "Windows ноутбуки и ПК", iconType: 'windows' as const, description: "Ноутбуки и ПК всех брендов", services: ["Замена дисплея", "Замена батареи", "Чистка и замена пасты", "Ремонт зарядки", "Ремонт материнской платы"] },
+              { name: "macOS устройства", iconType: 'macos' as const, description: "MacBook Air, MacBook Pro, iMac", services: ["Замена дисплея", "Замена батареи", "Чистка и замена пасты", "Ремонт клавиатуры", "Ремонт материнской платы"] },
             ].map((platform) => (
               <PlatformAccordion key={platform.name} platform={platform} />
             ))}

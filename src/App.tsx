@@ -8,6 +8,7 @@ import IndexRu from "./pages/IndexRu";
 import PricePage from "./pages/PricePage";
 import CenaPage from "./pages/CenaPage";
 import PodmienkyPage from "./pages/PodmienkyPage";
+import ServisnePodmienkyPage from "./pages/ServisnePodmienkyPage";
 import NotFound from "./pages/NotFound";
 import CookieBanner from "./components/CookieBanner";
 
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/price" element={<PricePage />} />
           <Route path="/cena" element={<CenaPage />} />
           <Route path="/podmienky" element={<PodmienkyPage />} />
+          <Route path="/servisne-podmienky" element={<ServisnePodmienkyPage />} />
           
           {/* Service Pages */}
           <Route path="/vymena-displeja" element={<VymenaDisplejaPage />} />

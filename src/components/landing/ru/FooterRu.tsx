@@ -69,6 +69,9 @@ export default function FooterRu() {
                   </Link>
                 )
               )}
+              <Link to="/servisne-podmienky" className="block text-slate-400 hover:text-primary-foreground transition-colors">
+                Условия сервиса
+              </Link>
             </nav>
           </div>
 

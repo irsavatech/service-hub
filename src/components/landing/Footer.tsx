@@ -58,6 +58,9 @@ export default function Footer() {
                   </a> : <Link key={link.label} to={`/${link.hash}`} className="block text-slate-400 hover:text-primary-foreground transition-colors">
                     {link.label}
                   </Link>)}
+              <Link to="/servisne-podmienky" className="block text-slate-400 hover:text-primary-foreground transition-colors">
+                Servisné podmienky
+              </Link>
             </nav>
           </div>
 

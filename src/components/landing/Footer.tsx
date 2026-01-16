@@ -93,7 +93,15 @@ export default function Footer() {
               © {currentYear} Iršava tech. Všetky práva vyhradené.
             </p>
             <p className="text-slate-500 text-sm">
-              Servis elektroniky v Bratislave
+              Servis elektroniky v Bratislave | Made by{' '}
+              <a 
+                href="https://vlad-weby.sk" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300 transition-colors"
+              >
+                vlad-weby.sk
+              </a>
             </p>
           </div>
         </div>
